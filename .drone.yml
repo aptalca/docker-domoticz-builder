@@ -1,0 +1,79 @@
+---
+kind: pipeline
+name: linux-amd64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: publish_image
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    dockerfile: Dockerfile
+    password:
+      from_secret: docker_password
+    repo: aptalca/domoticz-builder
+    username:
+      from_secret: docker_username
+    dry_run: true
+  when:
+    event:
+    - push
+    - tag
+
+---
+kind: pipeline
+name: linux-arm
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+- name: publish_image
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    auto_tag_suffix: linux-arm
+    dockerfile: Dockerfile
+    password:
+      from_secret: docker_password
+    repo: aptalca/domoticz-builder
+    username:
+      from_secret: docker_username
+    dry_run: true
+  when:
+    event:
+    - push
+    - tag
+
+---
+kind: pipeline
+name: linux-arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+- name: publish_image
+  image: plugins/docker
+  settings:
+    auto_tag: true
+    auto_tag_suffix: linux-arm64
+    dockerfile: Dockerfile
+    password:
+      from_secret: docker_password
+    repo: aptalca/domoticz-builder
+    username:
+      from_secret: docker_username
+    dry_run: true
+  when:
+    event:
+    - push
+    - tag
+
+...
