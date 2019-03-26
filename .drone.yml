@@ -38,7 +38,7 @@ steps:
   settings:
     auto_tag: true
     auto_tag_suffix: linux-arm
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.armhf
     password:
       from_secret: docker_password
     repo: aptalca/domoticz-builder
@@ -64,7 +64,7 @@ steps:
   settings:
     auto_tag: true
     auto_tag_suffix: linux-arm64
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.aarch64
     password:
       from_secret: docker_password
     repo: aptalca/domoticz-builder
